@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fund Me App</title>
+  </head>
+
+  <body>
+    <button id="connectButton" onclick="bundle.connect()">Connect</button>
+    <button id="balanceButton" onclick="bundle.getBalance()">getBalance</button>
+    <button id="withdrawButton" onclick="bundle.withdraw()">Withdraw</button>
+    <!-- <form> -->
+    <label for="fund">ETH Amount</label>
+    <input id="ethAmount" placeholder="0.1" />
+    <button
+      type="button"
+      onclick="bundle.fund(document.getElementById('ethAmount').value)"
+    >
+      Fund
+    </button>
+    <!-- </form> -->
+  </body>
+
+  <script src="./dist/bundle.js" type="text/javascript"></script>
+</html>
