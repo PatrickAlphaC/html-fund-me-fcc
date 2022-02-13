@@ -85,7 +85,7 @@ In the output of the above command, take one of the private key accounts and [im
 
 Additionally, add your localhost with chainid 31337 to your metamask.
 
-5. Reserve the front end with `yarn http-server`, and then hit the `Execute` button after connecting
+5. Reserve the front end with `yarn http-server`, input an amount in the text box, and hit `fund` button after connecting
 
 # Thank you!
 
