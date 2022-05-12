@@ -7,6 +7,8 @@ This is a minimalistic example what you can find in the [metamask docs](https://
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
   - You'll know you've installed it right if you can run:
     - `git --version`
+- [Metamask](https://metamask.io/)
+  - This is a browser extension that lets you interact with the blockchain.
 - [Nodejs](https://nodejs.org/en/)
   - You'll know you've installed nodejs right if you can run:
     - `node --version` And get an ouput like: `vx.x.x`
@@ -14,36 +16,29 @@ This is a minimalistic example what you can find in the [metamask docs](https://
   - You'll know you've installed yarn right if you can run:
     - `yarn --version` And get an output like: `x.x.x`
     - You might need to install it with npm
-- [Metamask](https://metamask.io/)
-  - This is a browser extension that lets you interact with the blockchain.
 
 # Quickstart
 
-1. Clone the repo, install dependencies, and create the build.
+1. Clone the repo
 
 ```
 git clone https://github.com/PatrickAlphaC/html-fund-me-fcc
 cd html-fund-me-fcc
+```
+
+2. Run the file.
+
+You can usually just double click the file to "run it in the browser". Or you can right click the file in your VSCode and run "open with live server".
+
+Optionally:
+
+If you'd like to run with prettier formatting, or don't have a way to run your file in the browser, run:
+```
 yarn
-yarn build
-```
-
-2. Serve the file
-
-```
 yarn http-server
 ```
 
-And you'll see an output like:
-
-```
-Available on:
-  http://127.0.0.1:8080
-  http://x.x.x.x:8080
-Hit CTRL-C to stop the server
-```
-
-Copy paste the first link into your browser, and you should see a small button that says "connect".
+And you should see a small button that says "connect".
 
 ![Connect](connect.png)
 
@@ -68,15 +63,9 @@ This will deploy a sample contract and start a local hardhat blockchain.
 
 2. Update your `constants.js` with the new contract address.
 
-In your `constants.js` file, update the variable `contractAddress` with the address of the deployed contract. You'll see it near the top of the hardhat output.
+In your `constants.js` file, update the variable `contractAddress` with the address of the deployed "FundMe" contract. You'll see it near the top of the hardhat output.
 
-3. Rebuild
-
-```
-yarn build
-```
-
-4. Connect your [metamask](https://metamask.io/) to your local hardhat blockchain.
+3. Connect your [metamask](https://metamask.io/) to your local hardhat blockchain.
 
 > **PLEASE USE A METAMASK ACCOUNT THAT ISNT ASSOCIATED WITH ANY REAL MONEY.**
 > I usually use a few different browser profiles to separate my metamasks easily.

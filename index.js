@@ -1,5 +1,14 @@
-const { ethers } = require("ethers")
-const { abi, contractAddress } = require("./constants")
+import { ethers } from "./ethers-5.6.esm.min.js"
+import { abi, contractAddress } from "./constants.js"
+
+const connectButton = document.getElementById("connectButton")
+const withdrawButton = document.getElementById("withdrawButton")
+const fundButton = document.getElementById("fundButton")
+const balanceButton = document.getElementById("balanceButton")
+connectButton.onclick = connect
+withdrawButton.onclick = withdraw
+fundButton.onclick = fund
+balanceButton.onclick = getBalance
 
 async function connect() {
   if (typeof window.ethereum !== "undefined") {
@@ -8,12 +17,11 @@ async function connect() {
     } catch (error) {
       console.log(error)
     }
-    document.getElementById("connectButton").innerHTML = "Connected"
+    connectButton.innerHTML = "Connected"
     const accounts = await ethereum.request({ method: "eth_accounts" })
     console.log(accounts)
   } else {
-    document.getElementById("connectButton").innerHTML =
-      "Please install MetaMask"
+    connectButton.innerHTML = "Please install MetaMask"
   }
 }
 
@@ -30,12 +38,12 @@ async function withdraw() {
       console.log(error)
     }
   } else {
-    document.getElementById("executeButton").innerHTML =
-      "Please install MetaMask"
+    withdrawButton.innerHTML = "Please install MetaMask"
   }
 }
 
-async function fund(ethAmount) {
+async function fund() {
+  const ethAmount = document.getElementById("ethAmount").value
   console.log(`Funding with ${ethAmount}...`)
   if (typeof window.ethereum !== "undefined") {
     const provider = new ethers.providers.Web3Provider(window.ethereum)
@@ -50,8 +58,7 @@ async function fund(ethAmount) {
       console.log(error)
     }
   } else {
-    document.getElementById("executeButton").innerHTML =
-      "Please install MetaMask"
+    fundButton.innerHTML = "Please install MetaMask"
   }
 }
 
@@ -65,8 +72,7 @@ async function getBalance() {
       console.log(error)
     }
   } else {
-    document.getElementById("executeButton").innerHTML =
-      "Please install MetaMask"
+    balanceButton.innerHTML = "Please install MetaMask"
   }
 }
 
@@ -80,11 +86,4 @@ function listenForTransactionMine(transactionResponse, provider) {
       resolve()
     })
   })
-}
-
-module.exports = {
-  connect,
-  withdraw,
-  fund,
-  getBalance,
 }

@@ -1,5 +1,5 @@
-const contractAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"
-const abi = [
+export const contractAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"
+export const abi = [
   {
     inputs: [
       {
@@ -123,8 +123,3 @@ const abi = [
     type: "function",
   },
 ]
-
-module.exports = {
-  abi,
-  contractAddress,
-}
