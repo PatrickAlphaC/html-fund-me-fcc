@@ -17,6 +17,8 @@ This is a minimalistic example what you can find in the [metamask docs](https://
     - `yarn --version` And get an output like: `x.x.x`
     - You might need to install it with npm
 
+Confused? You can run `git checkout nodejs-edition` if you'd like to see this with nodejs. 
+
 # Quickstart
 
 1. Clone the repo
