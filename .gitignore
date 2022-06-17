@@ -1,2 +1,4 @@
+.env
+.encryptedKey.json
 node_modules
 dist
