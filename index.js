@@ -35,6 +35,7 @@ async function withdraw() {
     try {
       const transactionResponse = await contract.withdraw()
       await listenForTransactionMine(transactionResponse, provider)
+      // await transactionResponse.wait(1)
     } catch (error) {
       console.log(error)
     }
