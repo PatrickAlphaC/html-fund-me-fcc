@@ -1,4 +1,7 @@
 {
+  "name": "html-fund-me-fcc",
+  "version": "1.0.0",
+  "description": "",
   "devDependencies": {
     "http-server": "^14.1.0"
   }
