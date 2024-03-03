@@ -28,10 +28,10 @@ async function connect() {
 async function withdraw() {
   console.log(`Withdrawing...`)
   if (typeof window.ethereum !== "undefined") {
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
-    await provider.send('eth_requestAccounts', [])
-    const signer = provider.getSigner()
-    const contract = new ethers.Contract(contractAddress, abi, signer)
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    await provider.send('eth_requestAccounts', []);
+    const signer = await provider.getSigner();
+    const contract = new ethers.Contract(contractAddress, ABI, signer);
     try {
       const transactionResponse = await contract.withdraw()
       await listenForTransactionMine(transactionResponse, provider)
@@ -48,12 +48,12 @@ async function fund() {
   const ethAmount = document.getElementById("ethAmount").value
   console.log(`Funding with ${ethAmount}...`)
   if (typeof window.ethereum !== "undefined") {
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
-    const signer = provider.getSigner()
-    const contract = new ethers.Contract(contractAddress, abi, signer)
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    const signer = await provider.getSigner();
+    const contract = new ethers.Contract(contractAddress, ABI, signer);
     try {
       const transactionResponse = await contract.fund({
-        value: ethers.utils.parseEther(ethAmount),
+        value: ethers.parseEther(ethAmount),
       })
       await listenForTransactionMine(transactionResponse, provider)
     } catch (error) {
@@ -66,10 +66,10 @@ async function fund() {
 
 async function getBalance() {
   if (typeof window.ethereum !== "undefined") {
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    const provider = new ethers.BrowserProvider(window.ethereum);
     try {
       const balance = await provider.getBalance(contractAddress)
-      console.log(ethers.utils.formatEther(balance))
+      console.log(ethers.formatEther(balance))
     } catch (error) {
       console.log(error)
     }
